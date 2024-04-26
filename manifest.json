@@ -1,0 +1,26 @@
+{
+    "name": "Speed",
+    "description": "Configura la velocidad de un video",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [{
+        "js": ["speed.js"],
+        "all_frames": true,
+        "matches": ["<all_urls>"]
+    }],
+    "permissions": ["storage", "scripting", "tabs", "activeTab"],
+    "commands": {
+        "restart-speed": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+S"
+            },
+            "description": "Reajusta la velocidad del video"
+        }
+    }
+}
