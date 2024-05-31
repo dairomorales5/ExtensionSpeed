@@ -7,7 +7,15 @@ chrome.runtime.onInstalled.addListener(() => {
 // Función para disparar la ejecución de la extensión
 function speed(spd) {
   if (spd) {
-      chrome.storage.sync.set({speed: spd});
+      if (/^[+-]/.test(spd)) { // Detectar si se pasa un número con signo a la función
+          chrome.storage.sync.get('speed', function (data) {
+              spd = parseFloat(data.speed) + parseFloat(spd);
+              spd = spd.toFixed(1);
+              chrome.storage.sync.set({speed: spd});
+          });
+      } else {
+        chrome.storage.sync.set({speed: spd});
+      }
   }
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       tabs.forEach(function (tab) {
@@ -30,6 +38,12 @@ chrome.commands.onCommand.addListener(function (command) {
             break;
         case "max-speed":
             speed('3');
+            break;
+        case "reduce-speed":
+            speed('-0.5');
+            break;
+        case "increase-speed":
+            speed('+0.5');
             break;
         default:
             console.log(`Command ${command} not found`);

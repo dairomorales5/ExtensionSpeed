@@ -23,16 +23,25 @@
             "description": "Reajusta la velocidad del video"
         },
         "half-speed": {
-            "suggested_key": {
-                "default": "Ctrl+Shift+5"
-            },
-            "description": "Reduce la velocidad del video a la mitad"
+            "description": "Reduce la velocidad del video a la mitad. Sin acceso directo por defecto"
         },
         "max-speed": {
             "suggested_key": {
                 "default": "Ctrl+Shift+3"
             },
             "description": "Aumenta la velocidad del video a 3"
+        },
+        "reduce-speed": {
+            "suggested_key": {
+                "default": "Alt+Shift+R"
+            },
+            "description": "Reduce la velocidad del video en 0.5"
+        },
+        "increase-speed": {
+            "suggested_key": {
+                "default": "Alt+Shift+S"
+            },
+            "description": "Aumenta la velocidad del video en 0.5"
         }
     }
 }
