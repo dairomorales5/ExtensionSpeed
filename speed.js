@@ -15,10 +15,12 @@ chrome.storage.sync.get('video', ({video}) => {
 		if (document.location.href.match("www.youtube.com")){
 			function vel(vid, veloc){
 					if(document.getElementsByClassName('ad-showing').length != 0){
-						vid.playbackRate = 10;
+						vid.playbackRate = 3;
 						const btn = document.querySelector(".ytp-ad-skip-button, .ytp-ad-skip-button-modern, .ytp-skip-ad-button");
 						try {
-              btn.click();
+              setTimeout(() => {
+                btn.click();
+              }, 2000);
             } catch (e) {}
 					} else {
             // Cambiar la velocidad del video real
